@@ -1,0 +1,37 @@
+<div id="bar">
+    <div id="bar-left">
+        <h2>Will Hoffman</h2>
+    </div>
+    <div id="bar-right">
+        <a href="#"><button class="invisible" popovertarget="bar-mailer"><img src="src/images/icons/email.svg" alt="Email" class="bar-logo"></button></a>
+        <a href="https://github.com/hoffw" target="_blank"><img src="src/images/icons/github.svg" alt="GitHub" class="bar-logo" /></a>
+    </div>
+</div>
+<dialog id="bar-mailer" popover>
+    <div class="fade-wrap">
+        <div class="inner">
+            <div class="details">
+                <h2>Contact</h2>
+                <div class="mailer">
+                    <div class="content-spacer">
+                        <form id="bar-form" method="POST">
+                            <input type="text" name="name" placeholder="Name" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <textarea name="message" placeholder="Your message..." required></textarea>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-bottom">
+            <div class="left">
+                <button class="btn-cell primary" type="submit" form="bar-form">Send <img src="src/images/icons/send.svg"></button>
+            </div>
+            <div class="right">
+                <button class="close" popovertarget="bar-mailer" popovertargetaction="hide">
+                <img src="src/images/icons/close.svg" height="40" alt="Close">
+                </button>
+            </div>
+        </div>
+    </div>
+</dialog>

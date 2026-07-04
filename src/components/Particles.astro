@@ -1,0 +1,32 @@
+<div id="particles"></div>
+<script>
+    import { tsParticles } from "@tsparticles/engine";
+    import { loadSlim } from "@tsparticles/slim";
+
+    (async () => {
+        await loadSlim(tsParticles);
+
+        await tsParticles.load({
+            id: "hero-inner",
+            options: {
+                fullScreen: {
+                    zIndex: -1,
+                },
+                particles: {
+                    color: { value: "#222222" },
+                    size: { value: 1.2 },
+                    number: { value: 70 },
+                    links: {
+                        enable: false,
+                        distance: 150,
+                        opacity: 0,
+                    },
+                    move: {
+                        enable: true,
+                        speed: 0.2,
+                    },
+                },
+            },
+        });
+        })();
+</script>

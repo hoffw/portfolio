@@ -1,0 +1,79 @@
+---
+import { getCollection } from "astro:content";
+import ProjectModal from "../components/ProjectModals.astro";
+import Projects from "../components/Projects.astro";
+import Particles from "../components/Particles.astro";
+import Footer from "../components/Footer.astro";
+import TopBar from "../components/TopBar.astro"
+import MailHandler from "../components/MailHandler.astro";
+
+import "../styles/main.css";
+
+const projects = await getCollection("projects");
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Portfolio</title>
+	</head>
+	<body>
+		<MailHandler />
+		<TopBar />
+		<div id="hero">
+			<div id="hero-inner">
+				<h1>my portfolio</h1>
+				<div id="cta">
+					<a href="#"><button class="btn-hero">Download Resume <img src="src/images/icons/download.svg" class="btn-logo" /></button></a>
+					<a href="https://github.com/hoffw" target="_blank"><button class="btn-hero">GitHub <img src="src/images/icons/github.svg" alt="GitHub" class="btn-logo" /></button></a>
+				</div>
+				<div id="profile">
+					<img src="src/images/me.jpg" alt="">
+				</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="left">
+				<h1>Hi!</h1>
+				<h3>I'm Will, a sophomore enrolled in the College of Engineering at the University of Iowa. I'm currently learning SolidWorks and have a variety of interests, mainly in systems administration and amateur software development.</h3>
+			</div>
+			<div class="right">
+				<h2>Software Experience</h2>
+				<img src="src/images/portfolio.png" height="283" width="360">
+			</div>
+		</div>
+		<div class="mouse-icon"><div class="wheel"></div></div>
+		<div class="viewport-wrapper fade-in">
+			<Projects />
+		</div>
+		{projects.map((project, index) =>
+			<ProjectModal project={project} index={index} />
+		)}
+		<Footer />
+		<Particles />
+		<script>
+		window.onbeforeunload = function () {
+			window.scrollTo(0, 0);
+		}
+
+		document.addEventListener('DOMContentLoaded', () => {
+			 window.addEventListener('scroll', () => {
+				if (window.scrollY !== 1) {
+					document.querySelector('.viewport-wrapper')?.classList.add('visible');
+					document.querySelector('.mouse-icon')?.classList.add('scrolled');
+					document.querySelector('#bar')?.classList.add('scrolled');
+				}
+
+				if (window.scrollY === 0) {
+					document.querySelector('.viewport-wrapper')?.classList.remove('visible');
+					document.querySelector('.mouse-icon')?.classList.remove('scrolled');
+					document.querySelector('#bar')?.classList.remove('scrolled');
+				}
+			});
+		});
+		</script>
+	</body>
+</html>

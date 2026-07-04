@@ -1,0 +1,31 @@
+---
+import { render } from 'astro:content';
+
+const { project, index } = Astro.props;
+const { Content } = await render(project);
+---
+
+<dialog id={`modal-${index}`} popover>
+  <div class="fade-wrap">
+    <div class="inner">
+      <img src={`src/thumbnails/${project.data.thumbnail}`} class="thumbnail">
+      <div class="details">
+        <h2>{project.data.name}</h2>
+        <div>
+            <Content />
+        </div>
+      </div>
+    </div>
+    <div class="modal-bottom">
+      <div class="left">
+        {project.data.github && <a href={`https://github.com/hoffw/${project.data.github}`} target="_blank"><button class="btn-cell primary">GitHub <img src="src/images/icons/github.svg"></button></a>}
+        {project.data.download && <a href="#"><button class="btn-cell primary">Download Files <img src="src/images/icons/download.svg"></button></a>}
+      </div>
+      <div class="right">
+        <button class="close" popovertarget={`modal-${index}`} popovertargetaction="hide">
+          <img src="src/images/icons/close.svg" height="40" alt="Close">
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
