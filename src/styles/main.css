@@ -47,6 +47,7 @@ a {
 
 input {
     font-family: 'noto-sans';
+    font-size: 16px;
 }
 
 img {
@@ -137,6 +138,7 @@ textarea {
     resize: none;
     color: var(--platinum);
     background-color: #121212;
+    font-size: 16px;
 }
 
 input[type="submit"]:active {
@@ -313,7 +315,7 @@ button.invisible {
 }
 
 .btn-cell.wide {
-    width: 35em;
+    width: 42em;
     display: block;
     height: 2.5em;
 }
@@ -463,7 +465,7 @@ dialog#bar-mailer {
     left: auto;
     right: 0;
     height: 27em;
-    width: 23em;
+    width: 24em;
     margin: 0;
     position: absolute;
     margin: 5.5em 1.8em;
@@ -479,14 +481,14 @@ dialog#bar-mailer input[type="text"], dialog#bar-mailer input[type="email"], dia
     background-color: var(--platinum);
     color: #121212;
     border: #121212 1px solid;
-    width: 23em;
+    width: 20em;
 }
 
 dialog#bar-mailer textarea {
     background-color: var(--platinum);
     color: #121212;
     border: #121212 1px solid;
-    height: 14em;
+    height: 10em;
 }
 
 dialog#bar-mailer::backdrop {
@@ -685,7 +687,11 @@ dialog .thumbnail {
     .content .right {
         position: static;
         right: auto;
-        padding-top: 10em;
+        padding-top: 12em;
+    }
+
+    .grid {
+        margin-top: 0;
     }
 }
 
@@ -715,13 +721,12 @@ dialog .thumbnail {
     }
 
     dialog .thumbnail {
-        
+        margin: 0 auto;
     }
 }
 
 @media screen and (max-width: 883px) {
     footer .right {
-        float: left;
         margin-top: 1em;
     }
 
@@ -730,6 +735,20 @@ dialog .thumbnail {
     }
 
     footer {
-        height: 23em;
+        height: 26em;
+    }
+
+    footer .right input, footer .right textarea {
+        width: 18em;
+    }
+
+    footer .right button.btn-cell.primary {
+        width: 21.5em;
+    }
+}
+
+@media screen and (max-width: 773px) {
+    footer .right {
+        float: left;
     }
 }
