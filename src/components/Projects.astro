@@ -17,7 +17,7 @@ const renderedProjects = await Promise.all(
     <div class="item">
         <h2>{project.data.name}</h2>
         <div class="img-container">
-            <img src={`src/thumbnails/${project.data.thumbnail}`} height="400" width="400">
+            <img src={`/thumbnails/${project.data.thumbnail}`} height="400" width="400">
         </div>
         <div class="tag-container">
             {project.data.tech.map((tag =>
@@ -26,9 +26,9 @@ const renderedProjects = await Promise.all(
         </div>
         <p>{project.data.description}</p>
         <div class="content-spacer">
-            <button class="btn-cell primary" popovertarget={`modal-${index}`}>Learn More <img src="src/images/icons/pop-out.svg" /></button>
-            {project.data.github && <a href={`https://github.com/hoffw/${project.data.github}`} target="_blank"><button class="btn-cell secondary">GitHub <img src="src/images/icons/github.svg"></button></a>}
-            {project.data.download && <a href="#"><button class="btn-cell secondary">Download Files <img src="src/images/icons/download.svg"></button></a>}
+            <button class="btn-cell primary" popovertarget={`modal-${index}`}>Learn More <img src="/images/icons/pop-out.svg" /></button>
+            {project.data.github && <a href={`https://github.com/hoffw/${project.data.github}`} target="_blank"><button class="btn-cell secondary">GitHub <img src="/images/icons/github.svg"></button></a>}
+            {project.data.download && <a href="#"><button class="btn-cell secondary">Download Files <img src="/images/icons/download.svg"></button></a>}
         </div>
     </div>
     ))}
