@@ -7,7 +7,12 @@ import node from '@astrojs/node';
 export default defineConfig({
   site: 'https://hoffmn.com',
   output: 'server',
-
+  security: {
+    checkOrigin: true,
+    allowedDomains: [
+      { hostname: "hoffmn.com" }
+    ]
+  },
   adapter: node({
     mode: 'standalone'
   })
