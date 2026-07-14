@@ -8,7 +8,7 @@ export default defineConfig({
   site: 'https://hoffmn.com',
   output: 'server',
   security: {
-    checkOrigin: true,
+    checkOrigin: false,
     allowedDomains: [
       { hostname: "hoffmn.com" }
     ]
