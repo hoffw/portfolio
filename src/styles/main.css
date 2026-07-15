@@ -1,3 +1,4 @@
+/* ===== Custom Properties ===== */
 
 :root {
     --midnight-blue: #191970;
@@ -6,12 +7,16 @@
     --platinum: #F4F4F6;
 }
 
+/* ===== Fonts ===== */
+
 @font-face {
     font-family: 'noto-sans';
     src: url('fonts/NotoSans-VariableFont_wdth\,wght.ttf');
     font-weight: normal;
     font-style: normal;
 }
+
+/* ===== Reset ===== */
 
 * {
     padding: 0;
@@ -23,6 +28,8 @@ body {
     font-family: 'noto-sans';
     margin: 0;
 }
+
+/* ===== Typography ===== */
 
 h1,h3,img,button,input,p {
     z-index: 1;
@@ -56,43 +63,20 @@ img {
     -moz-user-drag: none;
     -o-user-drag: none;
 
-    -webkit-user-select: none; /* Safari */
-    -moz-user-select: none;    /* Firefox */
-    -ms-user-select: none;     /* IE10+/Edge */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
     user-select: none;
 }
 
-footer {
-    height: 20vh;
-    background-color: #222222;
-    color: var(--rosy-granite);
-    z-index: 3;
-    padding: 2.5em;
-}
-
-footer a {
-    color: var(--rosy-granite);
-}
-
-footer .left {
-    float: left;
-    display: inline-block;
-}
-
-footer .right {
-    float: right;
-    display: inline-block;
-}
-
-.mailer {
-    padding-bottom: 3em;
-}
+/* ===== Form Elements ===== */
 
 input[type="text"] {
     display: block;
     margin: 0.5em 0em 0.5em 0em;
     height: 2.5em;
     width: 35em;
+    max-width: 100%;
     box-sizing: border-box;
     padding-left: 3px;
     border: none;
@@ -106,6 +90,7 @@ input[type="email"] {
     margin: 0.5em 0em 0.5em 0em;
     height: 2.5em;
     width: 35em;
+    max-width: 100%;
     box-sizing: border-box;
     padding-left: 3px;
     border: none;
@@ -119,6 +104,7 @@ input[type="submit"] {
     margin: 0.5em 0em 0.5em 0em;
     height: 2.5em;
     width: 35em;
+    max-width: 100%;
     box-sizing: border-box;
     background-color: var(--midnight-blue);
     color: var(--platinum);
@@ -129,6 +115,7 @@ input[type="submit"] {
 
 textarea {
     width: 35em;
+    max-width: 100%;
     height: 5em;
     box-sizing: border-box;
     border: none;
@@ -146,9 +133,11 @@ input[type="submit"]:active {
     transform: translateY(3px);
 }
 
+/* ===== Buttons ===== */
+
 button img {
     display: inline-block;
-    vertical-align: middle; /* Forces inline alignment */
+    vertical-align: middle;
     width: 1em;
     height: 1em;
     margin-left: 2px;
@@ -163,6 +152,101 @@ button.invisible img {
 button:hover {
     cursor: pointer;
 }
+
+button img {
+    display: inline;
+    height: 15px;
+    filter: invert(1);
+}
+
+button span {
+    display: inline;
+}
+
+button.invisible {
+     appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    line-height: normal;
+
+    cursor: pointer;
+
+    outline: none;
+    filter: invert(1);
+}
+
+/* ===== Buttons: Hero ===== */
+
+.btn-hero {
+    height: 3.5em;
+    margin: 0.2em;
+    padding: 0.4em 1.4em 0.4em 1.4em;
+    border: none;
+    border-radius: 7px;
+    background-color: #121212;
+    color: var(--rosy-granite);
+    font-weight: 600;
+    box-shadow: 2px 3px var(--rosy-granite);
+    float: left;
+    display: inline-block;
+}
+
+.btn-hero:active {
+    box-shadow: none;
+    transform: translateY(3px);
+}
+
+/* ===== Buttons: Cell ===== */
+
+.btn-cell {
+    height: 3.5em;
+    margin: 0.4em 0em;
+    padding: 0.4em 1.4em 0.4em 1.4em;
+    border: none;
+    border-radius: 7px;
+    color: var(--rosy-granite);
+    font-weight: 600;
+    box-shadow: 2px 3px var(--rosy-granite);
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.btn-cell.wide {
+    width: 42em;
+    max-width: 100%;
+    display: block;
+    height: 2.5em;
+}
+
+.btn-cell.primary {
+    background-color: var(--midnight-blue);
+    color: var(--platinum);
+}
+
+.btn-cell.secondary {
+    background-color: var(--platinum);
+    color: #121212;
+    box-shadow: 2px 3px var(--rosy-granite);
+    margin-left: 0.8em;
+}
+
+.btn-cell.secondary img {
+    filter: invert(0);
+}
+
+.btn-cell:active {
+    box-shadow: none;
+    transform: translateY(3px);
+}
+
+/* ===== Navigation Bar ===== */
 
 #bar {
     position: fixed;
@@ -210,11 +294,13 @@ button:hover {
     margin-left: 1em;
 }
 
+/* ===== Hero ===== */
+
 #hero {
     background: linear-gradient(to bottom right, var(--midnight-blue) 20%, var(--rosy-granite));
     height: 18em;
     margin: 1em;
-    margin-top: 0.5em !important; /* FIX THIS */
+    margin-top: 0.5em !important;
     padding: 8em 3em 0em 5em;
     border-radius: 10px;
 }
@@ -243,6 +329,8 @@ button:hover {
     z-index: 3;
 }
 
+/* ===== Particles ===== */
+
 #particles {
     position: absolute;
     top: 0;
@@ -251,95 +339,7 @@ button:hover {
     z-index: 0;
 }
 
-.btn-hero {
-    height: 3.5em;
-    margin: 0.2em;
-    padding: 0.4em 1.4em 0.4em 1.4em;
-    border: none;
-    border-radius: 7px;
-    background-color: #121212;
-    color: var(--rosy-granite);
-    font-weight: 600;
-    box-shadow: 2px 3px var(--rosy-granite);
-    float: left;
-    display: inline-block;
-}
-
-.btn-hero:active {
-    box-shadow: none;
-    transform: translateY(3px);
-}
-
-button img {
-    display: inline;
-    height: 15px;
-    filter: invert(1);
-}
-
-button span {
-    display: inline;
-}
-
-button.invisible {
-     appearance: none;
-    -webkit-appearance: none;
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-
-    /* don't fight the layout of whatever's inside */
-    font: inherit;
-    color: inherit;
-    text-align: inherit;
-    line-height: normal;
-
-    /* keep it interactive-looking where it matters */
-    cursor: pointer;
-
-    /* remove platform focus ring if you're supplying your own */
-    outline: none;
-    filter: invert(1);
-}
-
-.btn-cell {
-    height: 3.5em;
-    margin: 0.4em 0em;
-    padding: 0.4em 1.4em 0.4em 1.4em;
-    border: none;
-    border-radius: 7px;
-    color: var(--rosy-granite);
-    font-weight: 600;
-    box-shadow: 2px 3px var(--rosy-granite);
-    display: inline-block;
-}
-
-.btn-cell.wide {
-    width: 42em;
-    display: block;
-    height: 2.5em;
-}
-
-.btn-cell.primary {
-    background-color: var(--midnight-blue);
-    color: var(--platinum);
-}
-
-.btn-cell.secondary {
-    background-color: var(--platinum);
-    color: #121212;
-    box-shadow: 2px 3px var(--rosy-granite);
-    margin-left: 0.8em;
-}
-
-.btn-cell.secondary img {
-    filter: invert(0);
-}
-
-.btn-cell:active {
-    box-shadow: none;
-    transform: translateY(3px);
-}
+/* ===== Layout ===== */
 
 .content {
     max-width: 125ch;
@@ -369,11 +369,12 @@ button.invisible {
     position: absolute;
 }
 
-
 .content .right h2 {
     text-align: center;
     margin-bottom: 1em;
 }
+
+/* ===== Viewport Wrapper ===== */
 
 .viewport-wrapper {
     padding-top: 30vh;
@@ -396,7 +397,34 @@ button.invisible {
     transform: translateY(0);
 }
 
-/* Project Grid */
+/* ===== Footer ===== */
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2em;
+    min-height: 15em;
+    background-color: #222222;
+    color: var(--rosy-granite);
+    z-index: 3;
+    padding: 2.5em;
+}
+
+footer .left,
+footer .right {
+    min-width: 0;
+}
+
+footer a {
+    color: var(--rosy-granite);
+}
+
+.mailer {
+    padding-bottom: 3em;
+}
+
+/* ===== Project Grid ===== */
 
 .grid {
     display: flex;
@@ -422,7 +450,6 @@ button.invisible {
     font-weight: bold;
     border-radius: 3px;
     margin-right: 5px;
-    /* box-shadow: 1px 2px var(--rosy-granite); */
 }
 
 .content-spacer {
@@ -441,24 +468,25 @@ button.invisible {
     border-radius: 6px;
 }
 
-/* Project Modal */
+/* ===== Project Modal ===== */
 
 dialog {
     margin: 0 auto;
     margin-top: 10vh;
     background-color: #222222;
     color: white;
-    width: 50em;
+    width: 80vw;
     height: 80vh;
     border: none;
     box-shadow: 3px 3px var(--rosy-granite);
     border-radius: 8px;
-    overflow: hidden;
 
     transition: opacity 0.3s ease, transform 0.3s ease, display 0.3s allow-discrete;
     transform: scale(0.9) translateY(20px);
     opacity: 0;
 }
+
+/* ===== Other Dialogs ===== */
 
 dialog#bar-mailer {
     top: 0;
@@ -480,14 +508,14 @@ dialog#bar-mailer .inner {
 dialog#bar-mailer input[type="text"], dialog#bar-mailer input[type="email"], dialog#bar-mailer textarea {
     background-color: var(--platinum);
     color: #121212;
-    border: #121212 1px solid;
+    border: #121212 2px solid;
     width: 20em;
 }
 
 dialog#bar-mailer textarea {
     background-color: var(--platinum);
     color: #121212;
-    border: #121212 1px solid;
+    border: #121212 2px solid;
     height: 10em;
 }
 
@@ -524,6 +552,8 @@ dialog .fade-wrap {
   flex: 1;
   min-height: 0;
   opacity: 0;
+  overflow: hidden;
+  border-radius: 8px;
   transition: opacity 0.12s ease;
 }
 
@@ -543,13 +573,13 @@ dialog .inner {
 }
 
 dialog .details {
-    /* max-width: 30vw; */
     padding: 2em 2em 2em 2em;
 }
 
 dialog .details div {
     margin-top: 1em;
 }
+
 dialog .modal-bottom {
     background-color: var(--platinum);
     padding: 10px;
@@ -589,15 +619,19 @@ dialog .modal-bottom .right {
 }
 
 dialog .thumbnail {
-    margin: 1em 12.5em 0em 12.5em;
+    margin: 0 auto;
+    padding-top: 3em;
     display: block;
     height: auto;
     width: 25em;
-    border-radius: 8px;
+    border-radius: 5px;
 }
 
+dialog.toast {
+    
+}
 
-/* Scroll Indicator - Courtesy https://jsfiddle.net/cmajo9h6/ */
+/* ===== Scroll Indicator ===== */
 
 .mouse-icon {
     border: 2px solid var(--platinum);
@@ -613,6 +647,7 @@ dialog .thumbnail {
     right: 50%;
     transition: opacity 1s ease;
 }
+
 .mouse-icon .wheel {
   -webkit-animation-name: drop;
   -webkit-animation-duration: 1s;
@@ -633,6 +668,7 @@ dialog .thumbnail {
   -webkit-animation-play-state: running;
           animation-play-state: running;
 }
+
 .mouse-icon .wheel {
   position: relative;
   border-radius: 10px;
@@ -643,6 +679,7 @@ dialog .thumbnail {
   margin-left: auto;
   margin-right: auto;
 }
+
 @-webkit-keyframes drop {
   0% {
     top: 5px;
@@ -657,6 +694,7 @@ dialog .thumbnail {
     opacity: 0;
   }
 }
+
 @keyframes drop {
   0% {
     top: 5px;
@@ -676,7 +714,22 @@ dialog .thumbnail {
     opacity: 0;
 }
 
-/* Media Queries */
+/* ===== Toast ===== */
+
+.toast {
+    position: fixed;
+    bottom: 2em;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--midnight-blue);
+    color: var(--platinum);
+    padding: 1em 2em;
+    border-radius: 8px;
+    z-index: 100;
+    font-family: 'noto-sans';
+    font-size: 16px;
+    box-shadow: 2px 3px var(--rosy-granite);
+}
 
 @media screen and (max-width: 970px) {
     .content {
@@ -726,29 +779,8 @@ dialog .thumbnail {
 }
 
 @media screen and (max-width: 883px) {
-    footer .right {
-        margin-top: 1em;
-    }
-
     .mouse-icon {
         display: none;
     }
-
-    footer {
-        height: 26em;
-    }
-
-    footer .right input, footer .right textarea {
-        width: 18em;
-    }
-
-    footer .right button.btn-cell.primary {
-        width: 21.5em;
-    }
 }
 
-@media screen and (max-width: 773px) {
-    footer .right {
-        float: left;
-    }
-}
