@@ -5,7 +5,6 @@ import Projects from "../components/Projects.astro";
 import Particles from "../components/Particles.astro";
 import Footer from "../components/Footer.astro";
 import TopBar from "../components/TopBar.astro"
-import MailHandler from "../components/MailHandler.astro";
 
 import "../styles/main.css";
 
@@ -20,7 +19,7 @@ const projects = await getCollection("projects");
 		<title>Portfolio</title>
 	</head>
 	<body>
-		<MailHandler />
+		<div id="toast" class="toast" hidden></div>
 		<TopBar />
 		<div id="hero">
 			<div id="hero-inner">
@@ -58,6 +57,13 @@ const projects = await getCollection("projects");
 			window.scrollTo(0, 0);
 		}
 
+		function showToast(message) {
+			const toast = document.getElementById('toast');
+			toast.textContent = message;
+			toast.hidden = false;
+			setTimeout(() => { toast.hidden = true; }, 4000);
+		}
+
 		document.addEventListener('DOMContentLoaded', () => {
 			 window.addEventListener('scroll', () => {
 				if (window.scrollY !== 1) {
@@ -71,6 +77,32 @@ const projects = await getCollection("projects");
 					document.querySelector('.mouse-icon')?.classList.remove('scrolled');
 					document.querySelector('#bar')?.classList.remove('scrolled');
 				}
+			});
+
+			document.querySelectorAll('.contact-form').forEach(form => {
+				form.addEventListener('submit', async (e) => {
+					e.preventDefault();
+					const btn = form.querySelector('button[type="submit"]')
+						|| document.querySelector(`button[form="${form.id}"]`);
+					if (btn) btn.disabled = true;
+					try {
+						const res = await fetch('/api/contact', {
+							method: 'POST',
+							body: new FormData(form)
+						});
+						const data = await res.json();
+						showToast(data.message);
+						if (res.ok) {
+							form.reset();
+							const popover = form.closest('[popover]');
+							if (popover) popover.hidePopover();
+						}
+					} catch {
+						showToast('Failed to send message. Please try again.');
+					} finally {
+						if (btn) btn.disabled = false;
+					}
+				});
 			});
 		});
 		</script>
