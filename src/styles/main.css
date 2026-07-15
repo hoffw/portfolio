@@ -495,7 +495,7 @@ dialog#bar-mailer {
     height: 27em;
     width: 24em;
     margin: 0;
-    position: absolute;
+    position: fixed;
     margin: 5.5em 1.8em;
     background-color: var(--platinum);
     color: #121212;
@@ -526,10 +526,6 @@ dialog#bar-mailer::backdrop {
 dialog::backdrop {
     background-color: #121212;
     opacity: 0.95;
-}
-
-body:has(dialog:popover-open) {
-  overflow: hidden;
 }
 
 dialog:popover-open {
